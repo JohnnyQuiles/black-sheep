@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     username: { type: String, unique: true },
     email: { type: String, unique: true },
     password: String,
-    joinedGroups: [{ type: mongoose.Schema.ObjectId, ref: 'groups'}]
+    joinedGroups: [{ type: mongoose.Schema.ObjectId, ref: 'group'}]
 }, { timestamps: true });
 
 //error code 11000
