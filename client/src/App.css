@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Permanent+Marker&family=Water+Brush&display=swap');
+
 .App {
   text-align: center;
 }
@@ -14,17 +16,22 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: 'flex';
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: 'Monoton', 'cursive';
+  color: #E647EA;
+}
+.App-para { 
+  font-family: 'Water Brush', 'cursive';
+}
+
+.App-paragraph { 
+  font-family: 'Permanent Marker', 'cursive';
 }
 
 .App-link {
+  
   color: #61dafb;
 }
 
