@@ -1,10 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import { Box, Button, Container, TextField } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+
 
 function SignUpPage() {
+    const signupUrl = 'http://localhost:4017/users';
+
+    const [firstName, setFirstName] = useState();
+    const [lastName, setLastName] = useState();
+    const [username, setUsername] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+
     const navigate = useNavigate();
+    
+    // API
+    const create = async () => {
+        const response = await fetch(`${signupUrl}/create-user`, {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                "access-control-request-headers": "content-type",
+                "x-Trigger": "CORS",
+            },
+            body: JSON.stringify({
+                firstName: firstName,
+                lastName: lastName,
+                username: username,
+                email: email,
+                password: password
+            }),
+        })
+        console.log("RESPONSE:", response.status);
+        const userResponse = await response.json();
+
+        console.log('CREATE USER RESPONSE:', userResponse);
+        return userResponse;
+    }
+
+    const createUser = async () => {
+        const createResponse = await create();
+        console.log("CREATED USER:", createResponse);
+    }
+
     return (
         <Layout>
 
@@ -51,6 +92,9 @@ function SignUpPage() {
                                     borderRadius: '8px',
 
                                 }}
+                                onChange={(e) => {
+                                    setFirstName(e.target.value);
+                                }}
                             />
 
                             <br />
@@ -63,6 +107,9 @@ function SignUpPage() {
                                 sx={{
                                     background: "white",
                                     borderRadius: '8px',
+                                }}
+                                onChange={(e) => {
+                                    setLastName(e.target.value);
                                 }}
                             />
 
@@ -77,6 +124,9 @@ function SignUpPage() {
                                     background: "white",
                                     borderRadius: '8px',
                                 }}
+                                onChange={(e) => {
+                                    setUsername(e.target.value);
+                                }}
                             />
 
                             <br />
@@ -89,6 +139,9 @@ function SignUpPage() {
                                 sx={{
                                     background: "white",
                                     borderRadius: '8px',
+                                }}
+                                onChange={(e) => {
+                                    setEmail(e.target.value);
                                 }}
                             />
 
@@ -103,16 +156,28 @@ function SignUpPage() {
                                     background: "white",
                                     borderRadius: '8px',
                                 }}
+                                onChange={(e) => {
+                                    setPassword(e.target.value);
+                                }}
                             />
 
                             <br />
+
                             <Button
                                 style={{
                                     background: '#E647EA',
                                 }}
-                                onClick={() => {
+                                onClick={async () => {
+                                    window.localStorage.setItem("users", JSON.stringify({
+                                        firstName,
+                                        lastName,
+                                        username,
+                                        email,
+                                        password
+                                    }));
+                                    createUser();
                                     setTimeout(() => {
-                                        alert('User Created, routing to Login page');
+                                        alert(`User ${username} Created!`);
                                         navigate(`/login`);
                                     }, 300);
 

@@ -62,7 +62,7 @@ function HomePage() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: '100vh',
+                height: '50vh'
             }}>
 
                 <Box width="100%" maxWidth="100%" sx={{
@@ -70,7 +70,8 @@ function HomePage() {
                     borderRadius: '8px',
                     display: 'flex',
                     justifyContent: 'space-evenly',
-                    alignItems: 'center'
+                    alignItems: 'center', 
+                    
 
                 }}>
                     <Link to='about' style={{ textDecoration: 'none' }}>
