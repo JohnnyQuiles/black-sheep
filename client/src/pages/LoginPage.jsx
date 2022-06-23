@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import React from 'react';
 import Layout from '../components/Layout';
 
@@ -5,8 +6,9 @@ import Layout from '../components/Layout';
 function LoginPage() {
     return (
         <Layout>
-
-            <h1>Login Page</h1>
+            <Box>
+                <h1>Login Page</h1>
+            </Box>
         </Layout>
     )
 };

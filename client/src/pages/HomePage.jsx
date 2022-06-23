@@ -1,8 +1,8 @@
-import { Box, Container } from '@mui/material';
+import { Box, Card, Container } from '@mui/material';
 import React from 'react';
 import Layout from '../components/Layout';
 import { Link } from 'react-router-dom';
-
+import { ConnectionGroups } from "../pages/ConnectionGroups";
 import '../App.css';
 
 
@@ -22,6 +22,7 @@ function HomePage() {
                 <Box width="100%" maxWidth="100%" sx={{
                     background: '#1C1B1F',
                     borderRadius: '8px',
+                    height: '25vh'
                 }}>
 
 
@@ -53,53 +54,12 @@ function HomePage() {
                         Join groups, connect, and create memories.</p>
 
                 </Box>
-
-
             </Container>
 
             <br />
-
-            <Container>
-                <Box width="375px" maxWidth="100%" sx={{
-                    background: '#E647EA',
-                    borderRadius: '8px',
-                }}>
-
-                </Box>
-            </Container>
-
             <br />
 
-            <Container style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-            }}>
-
-                <Box width="375px" maxWidth="100%" sx={{
-                    background: '#1C1B1F',
-                    borderRadius: '8px',
-
-                }}>
-                    <ul>
-                        <h1 style={{
-                            color: 'white'
-                        }}>About Us</h1>
-
-                        <h1 style={{
-                            color: 'white'
-                        }}>Connection Groups</h1>
-
-                        <h1 style={{
-                            color: 'white'
-                        }}>Sign Up</h1>
-
-                        <h1 style={{
-                            color: 'white'
-                        }}>Login</h1>
-                    </ul>
-                </Box>
-            </Container>
+            
         </Layout >
     )
 };
