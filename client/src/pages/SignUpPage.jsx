@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import { Box, Button, Card, Container, TextField } from '@mui/material';
+import { Box, Button, Container, TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 function SignUpPage() {

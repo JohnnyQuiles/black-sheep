@@ -1,7 +1,6 @@
 import { Box } from '@mui/material';
 import React from 'react';
 import NavBar from './NavBar';
-import BottomBar from './BottomBar';
 import Alien from '../Images/Alien.png';
 
 function Layout(props) {
@@ -13,7 +12,7 @@ function Layout(props) {
             <div>
                 {children}
             </div>
-            <BottomBar />
+            
         </Box>
     );
 }
