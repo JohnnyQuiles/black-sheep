@@ -62,7 +62,7 @@ function HomePage() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: '50vh'
+                height: '58vh'
             }}>
 
                 <Box width="100%" maxWidth="100%" sx={{

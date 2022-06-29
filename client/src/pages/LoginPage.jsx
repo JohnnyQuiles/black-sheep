@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { logIn, logOut } from '../Redux/userSlice';
 import { Box, Button, Container, TextField } from '@mui/material';
 import Layout from '../components/Layout';
 
+// import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
+
     const loginUrl = 'http://localhost:4017/users';
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.user);
 
-    // API
+    // API ============================================================
     const login = async () => {
         const response = await fetch(`${loginUrl}/login`, {
             method: "POST",
@@ -29,20 +33,70 @@ function LoginPage() {
             }),
         })
         console.log("RESPONSE:", response.status);
+
         const userResponse = await response.json();
+
         return userResponse;
     };
 
     const userLogin = async () => {
         const loginResponse = await login();
         console.log("Login user:", loginResponse);
+
+        dispatch(logIn({ user: loginResponse }));
         return loginResponse.payload;
 
     };
 
+    const userLogout = () => {
+        dispatch(logOut);
+    };
+
+    // IF USER, LOGOUT 
+    if (user) {
+        return (
+            <Layout>
+
+                <br />
+                <br />
+
+                <Container style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <Box width="100%" maxWidth="100%" sx={{
+                        background: '#1C1B1F',
+                        borderRadius: '8px',
+
+                    }}>
+                        <h1 style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            color: '#86C5FF',
+                        }}>Hi</h1>
+
+                        <h1 style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            color: '#86C5FF',
+                        }}>{username}</h1>
+                        
+
+                        <br />
+                        <br />
+
+
+                        <Button
+                            style={{ background: '#E647EA' }}
+                            onClick={userLogout}>LogOut</Button>
+                    </Box>
+                </Container>
+            </Layout >
+        )
+    };
 
     return (
-
         <Layout>
 
             <br />
@@ -87,6 +141,7 @@ function LoginPage() {
                                     borderRadius: '8px',
 
                                 }}
+                                value={username}
                                 onChange={(e) => {
                                     setUsername(e.target.value);
                                 }}
@@ -103,6 +158,7 @@ function LoginPage() {
                                     background: "white",
                                     borderRadius: '8px',
                                 }}
+                                value={password}
                                 onChange={(e) => {
                                     setPassword(e.target.value);
                                 }}
@@ -115,13 +171,9 @@ function LoginPage() {
                                 }}
                                 onClick={async () => {
                                     await userLogin();
-                                    setTimeout(() => {
-                                        // alert(`Welcome ${username} <3 <3`);
-                                        navigate(`/groups`);
-                                    }, 300);
+                                }}
 
-
-                                }}>Login</Button>
+                            >Login</Button>
                         </Box>
                     </Container>
                 </Box>
@@ -130,7 +182,7 @@ function LoginPage() {
     )
 
 
-
 };
 
 export default LoginPage;
+

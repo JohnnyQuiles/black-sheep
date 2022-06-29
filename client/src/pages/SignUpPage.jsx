@@ -176,10 +176,10 @@ function SignUpPage() {
                                         password
                                     }));
                                     createUser();
-                                    setTimeout(() => {
-                                        alert(`User ${username} Created!`);
-                                        navigate(`/login`);
-                                    }, 300);
+                                    // setTimeout(() => {
+                                    //     alert(`User ${username} Created!`);
+                                    //     navigate(`/login`);
+                                    // }, 300);
 
                                 }}>Create Account</Button>
                         </Box>
