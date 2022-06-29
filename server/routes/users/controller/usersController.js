@@ -28,7 +28,10 @@ const createUser = async (req, res) => {
 const userLogin = async (req, res) => {
     try {
         const { username, password } = req.body;
+        
         const foundUser = await User.findOne({ username: username });
+        console.log("found user:", foundUser);
+
         if (foundUser === null) throw { message: "User not found" };
 
         const comparedPassword = await bcrypt.compare(password, foundUser.password);
