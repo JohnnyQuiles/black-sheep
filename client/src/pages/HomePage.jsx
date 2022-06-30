@@ -15,7 +15,7 @@ function HomePage() {
     
                 <br />
     
-                <Container style={{
+                <Container width="100%" maxWidth="100%" style={{
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center'
@@ -39,20 +39,20 @@ function HomePage() {
                             color: '#E647EA'
                         }}>I LOVE YOUR SOUL</h2>
     
-                        <h2 style={{
+                        <h3 style={{
                             display: 'flex',
                             justifyContent: 'center',
                             color: '#86C5FF'
-                        }} className='App-para'>I just want to say, You are Beautiful </h2>
+                        }} className='App-para'>I just want to say, You are Beautiful </h3>
     
-                        <p style={{
+                        <h3 style={{
                             display: 'flex',
                             justifyContent: 'center',
                             color: 'white',
                         }} className='App-paragraph'>
                             This is a place where you can be yourself!
                             Meet new people, who are just as unique as you are.
-                            Join groups, connect, and create memories.</p>
+                            Join groups, connect, and create memories.</h3>
     
                     </Box>
                 </Container>
@@ -60,7 +60,7 @@ function HomePage() {
                 <br />
                 <br />
     
-                <Container style={{
+                <Container width="100%" maxWidth="100%" style={{
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -126,7 +126,7 @@ function HomePage() {
     
                 <br />
     
-                <Container style={{
+                <Container width="100%" maxWidth="100%" style={{
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center'
@@ -171,7 +171,7 @@ function HomePage() {
                 <br />
                 <br />
     
-                <Container style={{
+                <Container width="100%" maxWidth="100%" style={{
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',

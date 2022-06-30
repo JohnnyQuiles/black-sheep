@@ -6,6 +6,7 @@ import About from './pages/About';
 import Login from './pages/LoginPage';
 import ConnectionGroups from './pages/ConnectionGroups';
 import SignUp from './pages/SignUpPage';
+import Dubstep from './pages/Dubstep';
 import { Provider as ReduxProvider } from 'react-redux';
 import store from './Redux/store'; 
 import './App.css';
@@ -21,6 +22,7 @@ function App() {
             <Route path='/groups' element={<ConnectionGroups />} />
             <Route path='/about' element={<About />} />
             <Route path='/signup' element={<SignUp />} />
+            <Route path='/dubstep' element={<Dubstep />} />
           </Routes>
         </CustomThemeProvider>
       </BrowserRouter>

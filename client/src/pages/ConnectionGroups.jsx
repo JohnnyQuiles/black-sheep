@@ -253,7 +253,9 @@ function ConnectionGroups() {
                                 </Box>
 
                                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt laboriosam ex facilis vero expedita perferendis alias magni temporibus! Iure vitae quod iusto tempore eius soluta harum, aliquid quo laudantium adipisci!</p>
-                                <Button style={{ background: "black", color: 'crimson' }}>Join</Button>
+                                <Button style={{ background: "black", color: 'crimson' }} onClick={() => {
+                                    navigate(`/dubstep`)
+                                }}>Join</Button>
                             </Card>
                         </Box>
 
