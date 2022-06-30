@@ -48,7 +48,7 @@ function HomePage() {
                         <p style={{
                             display: 'flex',
                             justifyContent: 'center',
-                            color: 'white'
+                            color: 'white',
                         }} className='App-paragraph'>
                             This is a place where you can be yourself!
                             Meet new people, who are just as unique as you are.

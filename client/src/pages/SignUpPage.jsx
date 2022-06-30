@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import { Box, Button, Container, TextField } from '@mui/material';
 
@@ -14,7 +14,7 @@ function SignUpPage() {
     const [password, setPassword] = useState();
 
     const navigate = useNavigate();
-    
+
     // API
     const create = async () => {
         const response = await fetch(`${signupUrl}/create-user`, {
@@ -176,14 +176,60 @@ function SignUpPage() {
                                         password
                                     }));
                                     createUser();
-                                    // setTimeout(() => {
-                                    //     alert(`User ${username} Created!`);
-                                    //     navigate(`/login`);
-                                    // }, 300);
+                                    setTimeout(() => {
+                                        alert(`User ${username} Created!`);
+                                        navigate(`/login`);
+                                    }, 300);
 
                                 }}>Create Account</Button>
                         </Box>
                     </Container>
+                </Box>
+            </Container>
+
+            <Container style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '27vh'
+            }}>
+
+                <Box width="100%" maxWidth="100%" sx={{
+                    background: '#1C1B1F',
+                    borderRadius: '8px',
+                    display: 'flex',
+                    justifyContent: 'space-evenly',
+                    alignItems: 'center',
+
+
+                }}>
+                    <Link to='about' style={{ textDecoration: 'none' }}>
+                        <h1 style={{
+                            color: '#E647EA',
+                            fontFamily: 'Monoton',
+                            display: 'flex',
+                            justifyContent: 'center'
+                        }}>About</h1>
+                    </Link>
+
+                    <Link to='groups' style={{ textDecoration: 'none' }}>
+                        <h1 style={{
+                            color: '#86C5FF',
+                            fontFamily: 'Monoton',
+                            display: 'flex',
+                            justifyContent: 'center'
+                        }}>Groups</h1>
+                    </Link>
+
+                    <Link to='signup' style={{ textDecoration: 'none' }}>
+                        <h1 style={{
+                            color: '#E647EA',
+                            fontFamily: 'Monoton',
+                            display: 'flex',
+                            justifyContent: 'center'
+                        }}>Sign-up</h1>
+                    </Link>
+
                 </Box>
             </Container>
         </Layout >
